@@ -1,0 +1,1 @@
+This core was used in EDK version 12.4 on the IVK FPGA board from Avnet with a xc6slx150t Spartan 6 FPGA. 
