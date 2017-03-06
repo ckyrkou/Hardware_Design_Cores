@@ -1,0 +1,69 @@
+##############################################################################
+## Filename:          D:\Xilinx_Work\ongoingEDKprojects\05.Spartan6_Video_Starter_Kit\pcores/video_processor_v1_00_a/data/video_processor_v2_1_0.mpd
+## Description:       Microprocessor Peripheral Description
+## Date:              Mon May 07 15:30:16 2012 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+BEGIN video_processor
+
+## Peripheral Options
+OPTION IMP_NETLIST = TRUE
+OPTION IPTYPE = PERIPHERAL
+OPTION HDL = VERILOG
+OPTION IP_GROUP = MICROBLAZE:PPC:USER
+OPTION ARCH_SUPPORT_MAP = (others = DEVELOPMENT)
+OPTION DESC = Video Accelerator Core
+
+## VERILOG PARAMETERS
+
+PARAMETER C_XSVI_DWIDTH = 24, DT = INTEGER, DESC = DATA_WIDTH, RANGE = (8,16,24,32)
+PARAMETER C_CTRLDATA_WIDTH = 32, DT = INTEGER, DESC = CTRL_DATA_WIDTH, RANGE = (8,16,24,32)
+PARAMETER C_FAMILY = spartan6, DT = STRING
+
+## BUS INTERFACES
+BUS_INTERFACE BUS = XSVI_IN, BUS_TYPE = TARGET, BUS_STD = XSVI
+BUS_INTERFACE BUS = XSVI_OUT, BUS_TYPE = INITIATOR, BUS_STD = XSVI
+BUS_INTERFACE BUS=SFSL, BUS_STD=FSL, BUS_TYPE=SLAVE
+BUS_INTERFACE BUS=MFSL, BUS_STD=FSL, BUS_TYPE=MASTER
+
+## FSL Peripheral ports
+PORT FSL_Clk = "", DIR=I, SIGIS=Clk, BUS=MFSL:SFSL
+PORT FSL_Rst = OPB_Rst, DIR=I, BUS=MFSL:SFSL
+PORT FSL_S_Clk = FSL_S_Clk, DIR=I, SIGIS=Clk, BUS=SFSL
+PORT FSL_S_Read = FSL_S_Read, DIR=O, BUS=SFSL
+PORT FSL_S_Data = FSL_S_Data, DIR=I, VEC=[0:31], BUS=SFSL
+PORT FSL_S_Control = FSL_S_Control, DIR=I, BUS=SFSL
+PORT FSL_S_Exists = FSL_S_Exists, DIR=I, BUS=SFSL
+PORT FSL_M_Clk = FSL_M_Clk, DIR=I, SIGIS=Clk, BUS=MFSL
+PORT FSL_M_Write = FSL_M_Write, DIR=O, BUS=MFSL
+PORT FSL_M_Data = FSL_M_Data, DIR=O, VEC=[0:31], BUS=MFSL
+PORT FSL_M_Control = FSL_M_Control, DIR=O, BUS=MFSL
+PORT FSL_M_Full = FSL_M_Full, DIR=I, BUS=MFSL
+
+## INPUT PORTS
+PORT vblank_in = "vblank", DIR = I, BUS = XSVI_IN
+PORT hblank_in = "hblank", DIR = I, BUS = XSVI_IN
+PORT vsync_in = "vsync", DIR = I, BUS = XSVI_IN
+PORT hsync_in = "hsync", DIR = I, BUS = XSVI_IN
+PORT active_video_in = "active_video", DIR = I, BUS = XSVI_IN
+PORT video_data_in = "video_data", DIR = I, VEC = [0:C_XSVI_DWIDTH-1], BUS = XSVI_IN
+
+## OUTPUT PORTS
+PORT vblank_out = "vblank", DIR = O, BUS = XSVI_OUT
+PORT hblank_out = "hblank", DIR = O, BUS = XSVI_OUT
+PORT vsync_out = "vsync", DIR = O, BUS = XSVI_OUT
+PORT hsync_out = "hsync", DIR = O, BUS = XSVI_OUT
+PORT active_video_out = "active_video", DIR = O, BUS = XSVI_OUT
+PORT video_data_out = "video_data", DIR = O, VEC = [0:C_XSVI_DWIDTH-1], BUS = XSVI_OUT
+
+
+PORT control_signals_in = "", DIR = I, VEC = [0:C_CTRLDATA_WIDTH-1]
+PORT control_signals_out = "", DIR = O, VEC = [0:C_CTRLDATA_WIDTH-1]
+
+## CLOCK AND RESET PORTS
+PORT System_Clock = "", DIR=I
+PORT Display_Clock = "", DIR=I
+PORT System_Reset = "", DIR=I
+PORT FSL_Reset = "", DIR=O
+
+END

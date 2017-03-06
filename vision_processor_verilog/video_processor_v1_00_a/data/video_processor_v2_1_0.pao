@@ -1,0 +1,30 @@
+##############################################################################
+## Filename:          D:\Xilinx_Work\ongoingEDKprojects\05.Spartan6_Video_Starter_Kit\pcores/video_processor_v1_00_a/data/video_processor_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Mon May 07 15:30:16 2012 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib video_processor_v1_00_a video_processor verilog
+lib video_processor_v1_00_a WindowBuffer verilog
+lib video_processor_v1_00_a RegisterEn verilog
+lib video_processor_v1_00_a lbp verilog
+lib video_processor_v1_00_a cs_lbp verilog
+lib video_processor_v1_00_a difference_lbp verilog
+lib video_processor_v1_00_a edgeUnit verilog
+lib video_processor_v1_00_a Gradient verilog
+lib video_processor_v1_00_a skin_detector verilog
+lib video_processor_v1_00_a rgb2ycrcb verilog
+lib video_processor_v1_00_a LBP_Uniform_Patterns verilog
+lib video_processor_v1_00_a SVM/alphaUnit verilog
+lib video_processor_v1_00_a SVM/ControllerUnitSVM verilog
+lib video_processor_v1_00_a SVM/faceVerifier verilog
+lib video_processor_v1_00_a SVM/final_SVM_stage verilog
+lib video_processor_v1_00_a SVM/kernelModule verilog
+lib video_processor_v1_00_a SVM/LBP_processor verilog
+lib video_processor_v1_00_a SVM/MAC verilog
+lib video_processor_v1_00_a SVM/memoryChain verilog
+lib video_processor_v1_00_a SVM/Mux2to1 verilog
+lib video_processor_v1_00_a SVM/parallelAdders_3 verilog
+lib video_processor_v1_00_a SVM/Register verilog
+lib video_processor_v1_00_a SVM/ROM verilog
+lib video_processor_v1_00_a SVM/ROMen verilog
