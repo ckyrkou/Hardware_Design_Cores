@@ -1,5 +1,4 @@
-# Hardware_Design_Cores
-IP Cores in Verilog and VHDL for arithmetic functions
+# IP Cores in Verilog and VHDL for arithmetic functions
 
 These cores have been used in part in the following projects:
 
